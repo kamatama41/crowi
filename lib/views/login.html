@@ -1,6 +1,6 @@
 {% extends 'layout/single-nologin.html' %}
 
-{% block html_title %}Login · {% endblock %}
+{% block html_title %}{{ __('Log in') }} · {% endblock %}
 
 {% block content_main %}
 
@@ -18,7 +18,7 @@
 <div class="login-dialog flipper {% if req.query.register or req.body.registerForm or googleId %}to-flip{% endif %}" id="login-dialog">
 
   <div class="login-dialog-inner front">
-    <h2>ログイン</h2>
+    <h2>{{ __('Log in') }}</h2>
 
     <div id="login-form-errors">
       {% set message = req.flash('warningMessage') %}
@@ -49,7 +49,7 @@
         <input type="password" class="form-control" placeholder="Password" name="loginForm[password]">
       </div>
 
-      <input type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
+      <input type="submit" class="btn btn-primary btn-lg btn-block" value="{{ __('Log in') }}">
     </form>
 
     <hr>
@@ -57,36 +57,36 @@
     <div class="row">
       {% if googleLoginEnabled() %}
       <div class="col-md-6">
-        <p>Google でログイン</p>
+        <p>{{ __('Login with Google') }}</p>
         <form role="form" action="/login/google" method="get">
-          <button type="submit" class="btn btn-block btn-google"><i class="fa fa-google-plus-square"></i> Login</button>
+          <button type="submit" class="btn btn-block btn-google"><i class="fa fa-google-plus-square"></i> {{ __('Log in') }}</button>
         </form>
       </div>
       {% endif %}
       {% if facebookLoginEnabled() %}
       <div class="col-md-6">
-        <p>Facebook でログイン</p>
+        <p>{{ __('Login with Facebook') }}</p>
         <form role="form">
-          <button type="button" id="btn-login-facebook" class="btn btn-block btn-facebook"><i class="fa fa-facebook-square"></i> Login</button>
+          <button type="button" id="btn-login-facebook" class="btn btn-block btn-facebook"><i class="fa fa-facebook-square"></i> {{ __('Log in') }}</button>
         </form>
       </div>
       {% endif %}
     </div>
 
     {% if config.crowi['security:registrationMode'] != 'Closed' %}
-    <p class="bottom-text"><a href="#register" onclick="$('#login-dialog').addClass('to-flip'); return false;"><i class="fa fa-pencil"></i> 新規登録はこちら</a></p>
+    <p class="bottom-text"><a href="#register" onclick="$('#login-dialog').addClass('to-flip'); return false;"><i class="fa fa-pencil"></i> {{ __('Sign up') }}</a></p>
     {% endif %}
   </div>
 
   {% if config.crowi['security:registrationMode'] != 'Closed' %}
   <div class="register-dialog-inner back">
 
-    <h2>新規登録</h2>
+    <h2>{{ __('Sign up') }}</h2>
 
     {% if config.crowi['security:registrationMode'] == 'Restricted' %}
     <p class="alert alert-warning">
-    この Wiki への新規登録は制限されています。<br>
-    利用を開始するには、新規登録後、管理者による承認が必要です。
+    {{ __('Signing up to the Wiki is restricted.') }}<br>
+    {{ __('If you want to use this, you have to be accepted by administrators after registering.') }}
     </p>
     {% endif %}
 
