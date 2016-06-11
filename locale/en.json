@@ -1,0 +1,9 @@
+{
+	"common": {
+		"login": "common.login"
+	},
+	"login": {
+		"signup_here": "login.signup_here",
+		"signup": "login.signup"
+	}
+}

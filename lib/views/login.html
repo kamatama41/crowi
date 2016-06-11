@@ -83,12 +83,10 @@
 
     <h2>{{ __('Sign up') }}</h2>
 
-    {% if config.crowi['security:registrationMode'] == 'Restricted' %}
     <p class="alert alert-warning">
     {{ __('Signing up to the Wiki is restricted.') }}<br>
     {{ __('If you want to use this, you have to be accepted by administrators after registering.') }}
     </p>
-    {% endif %}
 
     {% if googleId %}
     <div class="google-info alert alert-info">
